@@ -15,3 +15,13 @@
     </a>
   {/each}
 </div>
+
+<div class="p-4"></div>
+
+<div class="flex justify-center  items-center gap-10">
+  <a href="?page={data.page - 1}" class="text-white">Prev</a>
+  <p class="text-2xl text-white">{data.page + 1}</p>
+  <a href="?page={data.page + 1}" class="text-white">Next</a>
+</div>
+
+<div class="p-2"></div>

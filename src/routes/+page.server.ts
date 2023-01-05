@@ -4,9 +4,9 @@ import type { PageServerLoad } from "./$types";
 const LIMIT = 20;
 
 export const load = (async ({ url }) => {
-  let page = parseInt(url.searchParams.get("page") || "0");
-  let offset = page * LIMIT;
-  let res = await api.get(`/pokemon?limit=${LIMIT}&offset=${offset}`);
+  const page = parseInt(url.searchParams.get("page") || "0");
+  const offset = page * LIMIT;
+  const res = await api.get(`/pokemon?limit=${LIMIT}&offset=${offset}`);
 
   const pokemons = [];
   for (const result of res.data.results) {
@@ -18,5 +18,5 @@ export const load = (async ({ url }) => {
     });
   }
 
-  return { pokemons };
+  return { page, pokemons };
 }) satisfies PageServerLoad;
